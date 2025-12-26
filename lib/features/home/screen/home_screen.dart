@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:top_talent_agency/common/navBar/custom_bottom_navbar.dart';
 import 'package:top_talent_agency/core/roles.dart';
 import 'package:top_talent_agency/features/home/widget/custom_alerts.dart';
 import 'package:top_talent_agency/features/home/widget/custom_minicontainer.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:top_talent_agency/features/home/widget/custom_pichart.dart';
 import 'package:top_talent_agency/features/home/widget/custom_summary.dart';
-
 import '../widget/custom_coin.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -99,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                   child: const Text(
                     "You are in 5th position in manager ranking",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+                    style: TextStyle(color:Colors.white,fontWeight: FontWeight.w600, fontSize: 15),
                   ),
                 ),
 

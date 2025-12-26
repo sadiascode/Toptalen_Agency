@@ -65,7 +65,6 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 // controller: OTPController,
                 appContext: context,
               ),
-
               SizedBox(height: 20),
               Align(
                 alignment: Alignment.centerRight,
@@ -80,7 +79,6 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     SizedBox(height: 2),
                     Container(
                       width: 83,
@@ -88,19 +86,16 @@ class _VerifyScreenState extends State<VerifyScreen> {
                       color: Colors.black,
                     ),
                   ],
-
                 ),
               ),
-
-
               SizedBox(height: 40),
               CustomButton(text: "Verify code", onTap: (){
                 Navigator.push(
                     context, MaterialPageRoute(builder: (_) => const ResetScreen()));
               })
             ]
+          ),
         ),
-      ),
-    );
-  }
+     );
+   }
 }
