@@ -92,6 +92,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 ),
               ),
 
+
               SizedBox(height: 40),
               CustomButton(text: "Verify code", onTap: (){
                 Navigator.push(
