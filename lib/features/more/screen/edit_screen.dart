@@ -13,7 +13,7 @@ class EditScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF4F5F7),
+      backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
@@ -22,12 +22,12 @@ class EditScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black, size: 18),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 18),
         ),
         title: const Text(
           "Edit Admin",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -85,7 +85,7 @@ class EditScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
-                    color: Colors.black87,
+                    color: Colors.white,
                     decoration: TextDecoration.underline,
                      ),
                    ),
@@ -95,7 +95,7 @@ class EditScreen extends StatelessWidget {
                   'Admin Details',
                   style: TextStyle(
                     fontSize: 19,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
               SizedBox(height: 10),
@@ -121,7 +121,7 @@ class EditScreen extends StatelessWidget {
                       'Password',
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                     GestureDetector(

@@ -51,7 +51,7 @@ class CustomRankcoin extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black87,
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -59,7 +59,7 @@ class CustomRankcoin extends StatelessWidget {
                   '$hours • $followers',
                   style: TextStyle(
                     fontSize: 12,
-                    color: Color(0xFF9E9E9E),
+                    color: Colors.white70,
                   ),
                 ),
               ],
@@ -76,7 +76,7 @@ class CustomRankcoin extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 1),
@@ -84,7 +84,7 @@ class CustomRankcoin extends StatelessWidget {
                     'coins',
                     style: TextStyle(
                       fontSize: 13,
-                      color: Color(0xFF9E9E9E),
+                      color: Colors.white70,
                     ),
                   ),
                 ],

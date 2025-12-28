@@ -13,12 +13,8 @@ Widget ActionTile({
       width: 375,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0xff101828),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: Colors.grey[300]!,
-          width: 1,
-        ),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,18 +24,18 @@ Widget ActionTile({
             iconPath,
             width: 17,
             height: 17,
-            color: Colors.black,
+            color: Colors.white,
             fit: BoxFit.cover,
           ),
           SizedBox(width: 15),
           Text(
             title,
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black),
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white),
           ),
           Spacer(),
           Icon(
             Icons.chevron_right,
-            color: Colors.black,
+            color: Colors.white,
             size: 18,
           ),
         ],

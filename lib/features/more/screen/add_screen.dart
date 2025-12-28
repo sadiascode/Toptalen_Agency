@@ -12,7 +12,7 @@ class AddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF4F5F7),
+      backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
@@ -21,12 +21,12 @@ class AddScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black, size: 18),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 18),
         ),
         title: const Text(
           "Add or delete managers",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -44,6 +44,7 @@ class AddScreen extends StatelessWidget {
                   'assets/add.svg',
                   height: 16,
                   width: 16,
+                  color: Colors.white,
                 ),
                 const SizedBox(width: 10),
                 Text(
@@ -51,7 +52,7 @@ class AddScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
               ],
@@ -63,7 +64,7 @@ class AddScreen extends StatelessWidget {
             Text("Assigned Managers",style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
-              color: Colors.black
+              color: Colors.white
              ),
             ),
 

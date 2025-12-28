@@ -7,15 +7,16 @@ class TargetsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black,
           elevation: 0,
           title: Text(
           "Total targets for Agency",
           style: TextStyle(
             fontSize: 16,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -32,8 +33,7 @@ class TargetsScreen extends StatelessWidget {
              CustomTargets(
                year: 'January 2026',
                progressBarColor: Colors.red,
-               containerColor: Color(0xffFEF2F2),
-               containerBorderColor: Color(0xffFEF2F2),
+               containerColor: Color(0xff3F002B),
              ),
 
              SizedBox(height: 20),
@@ -43,8 +43,7 @@ class TargetsScreen extends StatelessWidget {
              CustomTargets(
                year: 'November 2025',
                progressBarColor: Color(0xff00A63E),
-               containerColor: Color(0xffF0FDF4),
-               containerBorderColor: Color(0xffFEF2F2),
+               containerColor: Color(0xff003612),
              ),
             ]
           ),

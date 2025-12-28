@@ -7,13 +7,8 @@ Widget ProgressCard({
   required String left,
   required String right,
 }) {
-  return Container(
-    padding: const EdgeInsets.all(14),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(16),
-    ),
-    child: Column(
+  return
+     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
@@ -22,6 +17,7 @@ Widget ProgressCard({
             Text(
               title,
               style: const TextStyle(
+                color: Colors.white,
                 fontWeight: FontWeight.w600,
                 fontSize: 14,
               ),
@@ -29,6 +25,7 @@ Widget ProgressCard({
             Text(
               subtitle,
               style: const TextStyle(
+                color: Colors.white,
                 fontWeight: FontWeight.w600,
                 fontSize: 14,
               ),
@@ -47,7 +44,7 @@ Widget ProgressCard({
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(left, style: const TextStyle(fontSize: 12)),
+            Text(left, style: const TextStyle( color: Colors.white,fontSize: 12)),
             Text(
               right,
               style: const TextStyle(
@@ -58,6 +55,5 @@ Widget ProgressCard({
           ],
         )
       ],
-    ),
   );
 }

@@ -13,17 +13,17 @@ class CustomCoin extends StatelessWidget {
     return Container(
       height: 231,
       width: 385,
-      padding: const EdgeInsets.all(2), // gradient border thickness
+      padding: const EdgeInsets.all(1.5), // gradient border thickness
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: AppColors.primaryGradient, // ✅ gradient border
+          colors: AppColors.primaryGradient, //  gradient border
         ),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.black, // inside color
+          color: Color(0xff101828),
           borderRadius: BorderRadius.circular(10),
         ),
 

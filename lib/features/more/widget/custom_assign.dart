@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:top_talent_agency/common/custom_button.dart';
 import 'package:top_talent_agency/features/auth/widgets/custom_textfield.dart';
 
+import '../../../common/custom_color.dart';
+
 class CustomAssign extends StatelessWidget {
   const CustomAssign({
     super.key,
@@ -10,15 +12,22 @@ class CustomAssign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 398,
-      width: 382,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Color(0xFFE0E0E0),
-          width: 1,
+        height: 398,
+        width: 382,
+        padding: const EdgeInsets.all(1.5), //  thickness
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: AppColors.primaryGradient, // gradient
+          ),
+          borderRadius: BorderRadius.circular(16),
         ),
-      ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.black, //  inside color
+            borderRadius: BorderRadius.circular(15), // 16 - 1
+          ),
       child: Padding(
         padding: const EdgeInsets.only(left: 18.0, top: 15),
         child: Column(
@@ -28,7 +37,7 @@ class CustomAssign extends StatelessWidget {
               "Manager Name",
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             const SizedBox(height: 5),
@@ -42,7 +51,7 @@ class CustomAssign extends StatelessWidget {
               "Email Address",
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             const SizedBox(height: 5),
@@ -56,7 +65,7 @@ class CustomAssign extends StatelessWidget {
               "Password",
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             const SizedBox(height: 5),
@@ -74,6 +83,7 @@ class CustomAssign extends StatelessWidget {
           ],
         ),
       ),
+        ),
     );
   }
 }

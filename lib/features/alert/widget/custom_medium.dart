@@ -13,8 +13,12 @@ class CustomMedium extends StatelessWidget {
             width: 111,
             height: 56,
             decoration: BoxDecoration(
-              color: Color(0xffFEF2F2),
+              color: Color(0xff101828),
               borderRadius: BorderRadius.circular(13),
+              border: Border.all(
+                color: Color(0xffD4183D),
+                width: 1,
+              ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -24,11 +28,11 @@ class CustomMedium extends StatelessWidget {
                   '16',
                   style: TextStyle(fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xff82181A)),
+                      color: Color(0xffD4183D)),
                 ),
                 Text(
                   'High',
-                  style: TextStyle(fontSize: 12, color: Color(0xffC10007)),
+                  style: TextStyle(fontSize: 12, color: Color(0xffD4183D)),
                 ),
               ],
             ),
@@ -38,8 +42,12 @@ class CustomMedium extends StatelessWidget {
             width: 111,
             height: 56,
             decoration: BoxDecoration(
-              color: Color(0xffFFF7ED),
+              color: Color(0xff101828),
               borderRadius: BorderRadius.circular(13),
+              border: Border.all(
+                color: Color(0xffFF6900),
+                width: 1,
+              ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -48,11 +56,11 @@ class CustomMedium extends StatelessWidget {
                 Text(
                   '2',
                   style: TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xff82181A)),
+                      fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xffFF6900),),
                 ),
                 Text(
                   'Medium',
-                  style: TextStyle(fontSize: 12, color: Color(0xffCA3500)),
+                  style: TextStyle(fontSize: 12, color: Color(0xffFF6900),),
                 ),
               ],
             ),
@@ -62,8 +70,12 @@ class CustomMedium extends StatelessWidget {
             width: 111,
             height: 56,
             decoration: BoxDecoration(
-              color: Color(0xffFEFCE8),
+              color: Color(0xff101828),
               borderRadius: BorderRadius.circular(13),
+              border: Border.all(
+                color: Color(0xffFF9C17),
+                width: 1,
+              ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -72,11 +84,11 @@ class CustomMedium extends StatelessWidget {
                 Text(
                   '0',
                   style: TextStyle
-                    (fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xff82181A)),
+                    (fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xffFF9C17),),
                 ),
                 Text(
                   'Low',
-                  style: TextStyle(fontSize: 12, color: Color(0xff82181A)),
+                  style: TextStyle(fontSize: 12, color: Color(0xffFF9C17),),
                 ),
               ],
             ),

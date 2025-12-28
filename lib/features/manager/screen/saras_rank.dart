@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:top_talent_agency/features/manager/widget/custom_rankcoin.dart';
 
+import '../../../common/custom_color.dart';
+
 class SarasRank extends StatelessWidget {
   const SarasRank({super.key});
 
@@ -11,18 +13,18 @@ class SarasRank extends StatelessWidget {
     final double rankFont = sw * 0.1;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: ( Icon(Icons.arrow_back_ios, color: Colors.black, size: 18))),
+        }, icon: ( Icon(Icons.arrow_back_ios, color: Colors.white, size: 18))),
         title: const Text(
           "Rank of Sarah’s Creators",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -73,7 +75,7 @@ class SarasRank extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: sw * 0.04,
-                            color: Colors.black87,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -116,7 +118,7 @@ class SarasRank extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: sw * 0.04,
-                            color: Colors.black87,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -159,7 +161,7 @@ class SarasRank extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: sw * 0.04,
-                            color: Colors.black87,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -170,19 +172,25 @@ class SarasRank extends StatelessWidget {
             ),
 
             const SizedBox(height: 30),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              height: 500,
-              width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: Colors.grey[300]!,
-                  width: 1,
-                ),
-              ),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.all(2), // 👈 border thickness
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: AppColors.primaryGradient,
+            ),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Container(
+            height: 500,
+            width: double.infinity,
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(10),
+            ),
               child: SingleChildScrollView(
               child: Column(
                   children: [
@@ -260,6 +268,7 @@ class SarasRank extends StatelessWidget {
                 ),
               ),
             ),
+        ),
           ],
         ),
       ),

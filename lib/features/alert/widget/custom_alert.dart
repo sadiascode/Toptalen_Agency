@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomAlert extends StatelessWidget {
   final IconData icon;
   final Color iconColor;
   final Color iconBgColor;
   final String priorityLabel;
+  final Color priorityConColor;
   final Color priorityColor;
   final String categoryLabel;
+  final Color categoryLabelCo;
   final String name;
   final String description;
   final String date;
@@ -18,14 +21,16 @@ class CustomAlert extends StatelessWidget {
     this.icon = Icons.trending_down,
     this.iconColor = Colors.red,
     this.iconBgColor = const Color(0xFFFFE5E5),
-    this.priorityLabel = 'High',
-    this.priorityColor = Colors.red,
-    this.categoryLabel = 'Underperformance',
+     required this.priorityLabel ,
+    required this. priorityConColor,
+     required this.priorityColor ,
+     required this.categoryLabel,
+    required this.categoryLabelCo,
     required this.name,
     required this.description,
     required this.date,
-    this.containerColor = const Color(0xFFFEF2F2),
-    this.containerBorderColor = const Color(0xFFFFCDD2),
+    required this.containerColor ,
+    required this.containerBorderColor,
   });
 
   @override
@@ -65,7 +70,7 @@ class CustomAlert extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                 decoration: BoxDecoration(
-                  color: priorityColor,
+                  color: priorityConColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
@@ -80,21 +85,17 @@ class CustomAlert extends StatelessWidget {
               const SizedBox(width: 8),
 
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                padding: EdgeInsets.symmetric(horizontal: 17, vertical: 7),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: priorityColor,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: Color(0xFFE0E0E0),
-                    width: 1,
-                  ),
                 ),
                 child: Text(
                   categoryLabel,
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
-                    color: Colors.black87,
+                    color: categoryLabelCo,
                   ),
                 ),
               ),
@@ -157,14 +158,16 @@ class CustomAlert extends StatelessWidget {
                     },
                   );
                 },
-                child: Icon(
-                  Icons.send,
-                  color: Colors.black87,
-                  size: 22,
+                child: SvgPicture.asset(
+                  'assets/notification.svg',
+                  width: 24,
+                  height: 24,
+                  color: Colors.white,
                 ),
               )
             ],
           ),
+
           const SizedBox(height: 5),
           Padding(
           padding: const EdgeInsets.only(left: 57),
@@ -176,7 +179,7 @@ class CustomAlert extends StatelessWidget {
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w600,
-              color: Colors.black87,
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 1),
@@ -184,7 +187,7 @@ class CustomAlert extends StatelessWidget {
             description,
             style: TextStyle(
               fontSize: 12,
-              color: Colors.black87,
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 7),
@@ -192,7 +195,7 @@ class CustomAlert extends StatelessWidget {
             date,
             style: TextStyle(
               fontSize: 12,
-              color: Colors.grey[600],
+              color: Colors.white,
             ),
           ),
         ],

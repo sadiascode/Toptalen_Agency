@@ -14,7 +14,7 @@ class CustomAlign extends StatelessWidget {
         title,
         style: TextStyle(
           fontSize: 16,
-          color: Colors.black,
+          color: Colors.white,
         ),
       ),
     );

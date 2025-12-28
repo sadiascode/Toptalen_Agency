@@ -5,23 +5,31 @@ import 'package:top_talent_agency/features/manager/screen/manager_details_screen
 import 'package:top_talent_agency/features/manager/screen/view_assign_creator_screen.dart';
 import 'package:top_talent_agency/features/manager/widget/custom_text.dart';
 
+import '../../../common/custom_color.dart';
+
 class CustomSortview extends StatelessWidget {
   const CustomSortview({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 318,
-      width: 382,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: Colors.grey[300]!,
-          width: 1,
+        padding: const EdgeInsets.all(1.5),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: AppColors.primaryGradient,
+          ),
+          borderRadius: BorderRadius.circular(12),
         ),
-      ),
+        child: Container(
+          height: 320,
+          width: 382,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Color(0xff101828),
+            borderRadius: BorderRadius.circular(10),
+          ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -55,12 +63,12 @@ class CustomSortview extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
-                          color: Colors.black87,
+                          color: Colors.white,
                         ),
                       ),
                       Icon(
                         Icons.chevron_right,
-                        color: Colors.black,
+                        color: Colors.white,
                         size: 28,
                       )
                     ],
@@ -79,7 +87,7 @@ class CustomSortview extends StatelessWidget {
                   child: Container(
                     height: 56,
                     decoration: BoxDecoration(
-                    color: Colors.blue[50],
+                    color: Color(0xff002370),
                     borderRadius: BorderRadius.circular(8),),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -90,14 +98,14 @@ class CustomSortview extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xff1C398E),
+                            color: Colors.white,
                           ),
                         ),
                         Text(
                           'Creators',
                           style: TextStyle(
                             fontSize: 12,
-                            color: Color(0xff1C398E),
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -112,7 +120,7 @@ class CustomSortview extends StatelessWidget {
                 child: Container(
                   height: 56,
                   decoration: BoxDecoration(
-                  color: Colors.green[50],
+                  color: Color(0xff003612),
                   borderRadius: BorderRadius.circular(8),),
 
                   child: Column(
@@ -124,14 +132,14 @@ class CustomSortview extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xff0D542B),
+                          color: Colors.white,
                         ),
                       ),
                       Text(
                         'Excellent',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Color(0xff0D542B),
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -145,7 +153,7 @@ class CustomSortview extends StatelessWidget {
                 child: Container(
                   height: 56,
                   decoration: BoxDecoration(
-                  color: Colors.red[50],
+                  color: Color(0xff3F002B),
                   borderRadius: BorderRadius.circular(8),
                   ),
                   child: Column(
@@ -157,14 +165,14 @@ class CustomSortview extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xff82181A),
+                          color: Colors.white,
                         ),
                       ),
                       Text(
                         'At Risk',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Color(0xff82181A),
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -192,12 +200,8 @@ class CustomSortview extends StatelessWidget {
               width: 349,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xff0F0F0F),
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: Colors.grey[300]!,
-                  width: 1,
-                ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -207,7 +211,7 @@ class CustomSortview extends StatelessWidget {
                     'assets/user.svg',
                     width: 17,
                     height: 17,
-                    color: Colors.black,
+                    color: Colors.white,
                     fit: BoxFit.cover,
                   ),
                   const Text(
@@ -215,22 +219,33 @@ class CustomSortview extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                   const Icon(
                     Icons.chevron_right,
-                    color: Colors.black,
+                    color: Colors.white,
                     size: 18,
                   ),
                 ],
               ),
             ),
           ),
-
-          const SizedBox(height: 17),
+          const SizedBox(height: 10),
+          Container(
+            height: 1.5,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: AppColors.primaryGradient,
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
           CustomText(),
-        ],
+          ],
+        ),
       ),
     );
   }

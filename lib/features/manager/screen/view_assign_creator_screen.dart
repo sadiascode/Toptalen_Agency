@@ -6,6 +6,8 @@ import 'package:top_talent_agency/features/manager/screen/saras_rank.dart';
 
 import 'package:top_talent_agency/core/roles.dart';
 
+import '../../../common/custom_color.dart';
+
 class ViewAssignCreatorsScreen extends StatelessWidget {
   final UiUserRole role;
 
@@ -17,7 +19,7 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF4F5F7),
+      backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
@@ -27,7 +29,7 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
               ? "My Creators"
               : "Sarah’s creators",
           style: const TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
@@ -41,7 +43,7 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
           },
           icon: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
+            color: Colors.white,
             size: 18,
           ),
         ),
@@ -56,16 +58,16 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
               height: 44,
               padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xff212121),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Row(
                 children: [
-                  Icon(Icons.search, color: Colors.grey),
+                  Icon(Icons.search, color: Colors.white),
                   SizedBox(width: 8),
                   Text(
                     "Search creators...",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ],
               ),
@@ -80,7 +82,7 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
                   "Showing 20 of 20 managers",
                   style: TextStyle(
                     fontSize: 15,
-                    color: Color(0xff6A7282),
+                    color: Colors.white,
                   ),
                 ),
                 InkWell(
@@ -96,7 +98,7 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: SvgPicture.asset(
                       'assets/soil.svg',
-                      color: Color(0xff101828),
+                      color: Colors.white,
                       width: 25,
                       height: 25,
                     ),
@@ -105,16 +107,17 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 12),
+            const SizedBox(height: 20),
 
             _creatorCard(
               context: context,
               name: "djes.yt",
               status: "Excellent",
-              statusColor: Color(0xff22C55E),
+              statusTextColor: Color(0xff008236),
+              statusColor: Color(0xffDCFCE7),
               manager: "Sarah Johnson",
-              coins: "17.8K / 14.8K",
-              hours: "154h / 134h",
+              coins: "💰12.9K / 14.3K",
+              hours: "⏱️154h / 134h",
               progressColor: Color(0xff22C55E),
               success: true,
             ),
@@ -123,10 +126,11 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
               context: context,
               name: "sarah.h",
               status: "Underperforming",
+              statusTextColor: Colors.white,
               statusColor: Color(0xffDC2626),
               manager: "Emily Rodriguez",
-              coins: "6.3K / 10.5K",
-              hours: "72h / 112h",
+              coins: "💰 6.3K / 10.5K",
+              hours: "⏱️72h / 112h",
               progressColor: Color(0xffDC2626),
               success: false,
             ),
@@ -135,10 +139,11 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
               context: context,
               name: "djes.yt",
               status: "Good",
-              statusColor: Color(0xff3B82F6),
+              statusTextColor: Color(0xff1447E6),
+              statusColor:Colors.white,
               manager: "Emily Rodriguez",
-              coins: "12.9K / 14.3K",
-              hours: "97h / 103h",
+              coins: "💰 12.9K / 14.3K",
+              hours: "⏱️97h / 103h",
               progressColor: Color(0xff3B82F6),
               success: true,
             ),
@@ -147,10 +152,11 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
               context: context,
               name: "sarah.h",
               status: "Underperforming",
+              statusTextColor: Colors.white,
               statusColor: Color(0xffDC2626),
               manager: "Emily Rodriguez",
-              coins: "6.3K / 10.5K",
-              hours: "72h / 112h",
+              coins: "💰 6.3K / 10.5K",
+              hours: "⏱️72h / 112h",
               progressColor: Color(0xffDC2626),
               success: false,
             ),
@@ -159,10 +165,11 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
               context: context,
               name: "djes.yt",
               status: "Good",
-              statusColor: Color(0xff3B82F6),
+              statusTextColor:Color(0xff1447E6),
+              statusColor: Colors.white,
               manager: "Emily Rodriguez",
-              coins: "12.9K / 14.3K",
-              hours: "97h / 103h",
+              coins: "💰 12.9K / 14.3K",
+              hours: "⏱️97h / 103h",
               progressColor: Color(0xff3B82F6),
               success: true,
             ),
@@ -176,6 +183,7 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
     required BuildContext context,
     required String name,
     required String status,
+    required Color statusTextColor,
     required Color statusColor,
     required String manager,
     required String coins,
@@ -193,11 +201,21 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
-          color: Colors.white,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: AppColors.primaryGradient,
+          ),
           borderRadius: BorderRadius.circular(16),
         ),
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(14),
+          ),
         child: Column(
           children: [
             Row(
@@ -217,9 +235,9 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
                         children: [
                           Text(
                             name,
-                            style: const TextStyle(fontWeight: FontWeight.w600),
+                            style: const TextStyle(fontWeight: FontWeight.w600,color: Colors.white),
                           ),
-                          const SizedBox(width: 6),
+                          const SizedBox(width: 10),
                           Container(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 8,
@@ -231,8 +249,8 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
                             ),
                             child: Text(
                               status,
-                              style: const TextStyle(
-                                color: Colors.white,
+                              style:  TextStyle(
+                                color: statusTextColor,
                                 fontSize: 10,
                               ),
                             ),
@@ -244,15 +262,16 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
                         "Manager: $manager",
                         style: const TextStyle(
                           fontSize: 11,
-                          color: Colors.black54,
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        "$coins   •   $hours",
+                        "$coins      $hours",
                         style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
+                            color: Colors.white
                         ),
                       ),
                     ],
@@ -268,7 +287,7 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
                       size: 18,
                     ),
                     const SizedBox(height: 6),
-                    const Icon(Icons.chevron_right, color: Colors.grey),
+                    const Icon(Icons.chevron_right, color: Colors.white),
                   ],
                 ),
               ],
@@ -282,6 +301,7 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
       ),
     );
   }

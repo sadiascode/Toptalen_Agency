@@ -6,13 +6,15 @@ import 'package:top_talent_agency/features/more/screen/add_screen.dart';
 import 'package:top_talent_agency/features/more/screen/edit_screen.dart';
 import 'package:top_talent_agency/features/more/widget/custom_more.dart';
 
+import '../../../common/custom_color.dart';
+
 class MoreScreen extends StatelessWidget {
   const MoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.transparent,
@@ -20,6 +22,7 @@ class MoreScreen extends StatelessWidget {
           title: Text(
             "Settings",
             style: TextStyle(
+              color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
@@ -30,12 +33,20 @@ class MoreScreen extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Color(0xffEFF6FF),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
+            Container(
+            padding: const EdgeInsets.all(1.5),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: AppColors.primaryGradient,
+              ),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color:  Colors.black,
+                borderRadius: BorderRadius.circular(15),
+              ),
                     child: Row(
                       children: [
                         // img
@@ -64,7 +75,7 @@ class MoreScreen extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
-                                  color: Colors.black87,
+                                  color: Colors.white,
                                 ),
                               ),
                               const SizedBox(height: 4),
@@ -72,7 +83,7 @@ class MoreScreen extends StatelessWidget {
                                 'admin@company.com',
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.grey[700],
+                                  color: Colors.white,
                                 ),
                               ),
                               const SizedBox(height: 6),
@@ -122,6 +133,7 @@ class MoreScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
                   const SizedBox(height: 24),
                   CustomMore(
                     sectionIcon: Icons.notifications_outlined,

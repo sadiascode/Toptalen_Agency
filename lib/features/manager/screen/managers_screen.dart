@@ -11,7 +11,7 @@ class ManagersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -19,6 +19,7 @@ class ManagersScreen extends StatelessWidget {
         title: Text(
           "Managers",
           style: TextStyle(
+            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
@@ -41,7 +42,7 @@ class ManagersScreen extends StatelessWidget {
                     "Showing 20 of 20 managers",
                     style: TextStyle(
                       fontSize: 15,
-                      color: Color(0xff6A7282),
+                      color: Colors.white,
                     ),
                   ),
                   InkWell(
@@ -57,7 +58,7 @@ class ManagersScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 10.0),
                       child: SvgPicture.asset(
                         'assets/soil.svg',
-                        color: Color(0xff101828),
+                        color: Colors.white,
                         width: 25,
                         height: 25,
                       ),

@@ -1,32 +1,40 @@
 import 'package:flutter/material.dart';
 
+import '../../../common/custom_color.dart';
+
 class CustomTargets extends StatelessWidget {
   final String year;
   final Color progressBarColor;
   final Color containerColor;
-  final Color containerBorderColor;
+
 
   const CustomTargets({
     super.key,
     this.year = 'December 2025',
     this.progressBarColor = const Color(0xff155DFC),
-    this.containerColor = const Color(0xFFE3F2FD),
-    this.containerBorderColor = const Color(0xFFBBDEFB),
+    this.containerColor = const Color(0xFF002370),
+
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 391,
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Color(0xFFE0E0E0),
-          width: 1,
+        height: 391,
+        padding: const EdgeInsets.all(1.5),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: AppColors.primaryGradient,
+          ),
+          borderRadius: BorderRadius.circular(16),
         ),
-      ),
+        child: Container(
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(15),
+          ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -35,7 +43,7 @@ class CustomTargets extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 2),
@@ -43,7 +51,7 @@ class CustomTargets extends StatelessWidget {
             '1,247 creators assigned',
             style: TextStyle(
               fontSize: 12,
-              color: Colors.black87,
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 17),
@@ -57,14 +65,14 @@ class CustomTargets extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
-                  color: Color(0xff4A5565),
+                  color: Colors.white,
                 ),
               ),
               Text(
                 '87.1%',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -87,14 +95,14 @@ class CustomTargets extends StatelessWidget {
                 '82,750,000',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.black87,
+                  color: Colors.white,
                 ),
               ),
               Text(
                 'Target: 95,000,000',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.black87,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -109,14 +117,14 @@ class CustomTargets extends StatelessWidget {
                 'Hours Progress',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.black87,
+                  color: Colors.white,
                 ),
               ),
               Text(
                 '88.7%',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -139,14 +147,14 @@ class CustomTargets extends StatelessWidget {
                 '119,800',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.black87,
+                  color: Colors.white,
                 ),
               ),
               Text(
                 'Target: 135,000',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.black87,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -163,10 +171,6 @@ class CustomTargets extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: containerColor,
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: containerBorderColor,
-                      width: 1,
-                    ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,7 +179,7 @@ class CustomTargets extends StatelessWidget {
                         'Coins Gap',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.black87,
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -183,7 +187,7 @@ class CustomTargets extends StatelessWidget {
                         '-12,250,000',
                         style: TextStyle(
                           fontSize: 16,
-                          color: Color(0xFFAB47BC),
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -191,7 +195,7 @@ class CustomTargets extends StatelessWidget {
                         'behind target',
                         style: TextStyle(
                           fontSize: 13,
-                          color: Colors.black87,
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -207,10 +211,6 @@ class CustomTargets extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: containerColor,
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: containerBorderColor,
-                      width: 1,
-                    ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -219,7 +219,7 @@ class CustomTargets extends StatelessWidget {
                         'Hours Gap',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.black87,
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -227,7 +227,7 @@ class CustomTargets extends StatelessWidget {
                         '-15,200',
                         style: TextStyle(
                           fontSize: 16,
-                          color: Color(0xFF2196F3),
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -235,7 +235,7 @@ class CustomTargets extends StatelessWidget {
                         'behind target',
                         style: TextStyle(
                           fontSize: 13,
-                          color: Colors.black87,
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -246,6 +246,7 @@ class CustomTargets extends StatelessWidget {
           ),
         ],
       ),
+        ),
     );
   }
 }

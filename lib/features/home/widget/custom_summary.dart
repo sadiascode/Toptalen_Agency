@@ -10,15 +10,18 @@ class CustomSummary extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      height: size.height * 0.55, // 55% of screen height
-      width: size.width * 0.92,   // 92% of screen width
-        padding: const EdgeInsets.all(2), // gradient border thickness
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: AppColors.primaryGradient, // ✅ gradient border
-          ),
-          borderRadius: BorderRadius.circular(12),
+      width: double.infinity,
+      constraints: BoxConstraints(
+        maxWidth: 420,
+        minHeight: size.height * 0.45,
+      ),
+      padding: const EdgeInsets.all(1.5),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: AppColors.primaryGradient,
         ),
+        borderRadius: BorderRadius.circular(12),
+      ),
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
@@ -51,11 +54,10 @@ class CustomSummary extends StatelessWidget {
 
           // High Priority Section
           Container(
-            height: 220,
-            width: 336,
             padding: const EdgeInsets.all(16),
+            width: double.infinity, // full available width
             decoration: BoxDecoration(
-              color: Color(0xff1D0014),
+              color: const Color(0xff1D0014),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
@@ -106,8 +108,9 @@ class CustomSummary extends StatelessWidget {
           // Team Insight Section
           Container(
             padding: const EdgeInsets.all(16),
+            width: double.infinity,
             decoration: BoxDecoration(
-              color: Color(0xFF001206),
+              color: const Color(0xFF001206),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(

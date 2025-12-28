@@ -14,7 +14,7 @@ class CustomPichart extends StatelessWidget {
     return Container(
       height: 175,
       width: 385,
-      padding: const EdgeInsets.all(2),
+      padding: const EdgeInsets.all(1.5),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: AppColors.primaryGradient,
@@ -24,7 +24,7 @@ class CustomPichart extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.black, // inside color
+          color: Color(0xff101828), // inside color
           borderRadius: BorderRadius.circular(8),
         ),
 

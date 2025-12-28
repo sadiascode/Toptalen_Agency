@@ -10,19 +10,19 @@ class CustomSearch extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 11),
       decoration: BoxDecoration(
-        color: Color(0xffF3F3F5),
+        color: Color(0xff212121),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
         children: [
-          Icon(Icons.search, color: Colors.grey[600]),
+          Icon(Icons.search, color: Colors.white),
           SizedBox(width: 10),
           Expanded(
             child: TextField(
               decoration: InputDecoration(
                 hintText: "Search Managers..",
                 border: InputBorder.none,
-                hintStyle: TextStyle(color: Colors.grey[600]),
+                hintStyle: TextStyle(color: Colors.white),
               ),
             ),
           ),

@@ -1,6 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../../../common/custom_color.dart';
+
 class LiveChart extends StatelessWidget {
   const LiveChart({
     super.key,
@@ -9,17 +11,28 @@ class LiveChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(1.5),
       decoration: BoxDecoration(
-        color: Colors.white,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: AppColors.primaryGradient,
+        ),
         borderRadius: BorderRadius.circular(16),
       ),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Color(0xff101828),
+          borderRadius: BorderRadius.circular(15),
+        ),
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             "Last 30 Days Performance",
-            style: TextStyle(fontWeight: FontWeight.w600),
+            style: TextStyle(color:Colors.white,fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 16),
 
@@ -83,8 +96,9 @@ class LiveChart extends StatelessWidget {
               ),
             ),
           ),
-          Center(child: Text("Daily coins earned over the past month")),
+          Center(child: Text("Daily coins earned over the past month", style: TextStyle(color: Colors.white))),
         ],
+      ),
       ),
     );
   }

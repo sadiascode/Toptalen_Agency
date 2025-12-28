@@ -6,6 +6,8 @@ import 'package:top_talent_agency/features/manager/widget/live_chart.dart';
 import 'package:top_talent_agency/features/manager/widget/profile_card.dart';
 import 'package:top_talent_agency/features/manager/widget/progress_card.dart';
 
+import '../../../common/custom_color.dart';
+
 
 class CreatorDetailsScreen extends StatelessWidget {
   const CreatorDetailsScreen({super.key});
@@ -13,7 +15,7 @@ class CreatorDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF4F5F7),
+      backgroundColor:  Colors.black,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
@@ -22,12 +24,12 @@ class CreatorDetailsScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black, size: 18),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white , size: 18),
         ),
         title: const Text(
           "Creator Details",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -52,35 +54,42 @@ class CreatorDetailsScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 14),
-
             const Text(
               "December Overview",
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(color:Colors.white,fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 10),
-
             const CustomPichart(),
-            const SizedBox(height: 16),
 
+            const SizedBox(height: 16),
             AiAnalysisCard(),
 
             const SizedBox(height: 18),
-
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Column(
+      Container(
+        padding: const EdgeInsets.all(2),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: AppColors.primaryGradient,
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color(0xff101828),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+          child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
                     "Target vs Actual (Current Month)",
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                    style: TextStyle(color:Colors.white,fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 10),
-
                   ProgressCard(
                     subtitle: "120.0%",
                     title: "Coins",
@@ -101,9 +110,9 @@ class CreatorDetailsScreen extends StatelessWidget {
                 ],
               ),
             ),
-
+        )
+      ),
             const SizedBox(height: 20),
-
             const LiveChart(),
 
             const SizedBox(height: 18),

@@ -10,7 +10,7 @@ class CustomAlerts extends StatelessWidget {
     return Container(
       height: 266,
       width: 386,
-      padding: const EdgeInsets.all(2), // gradient border thickness
+      padding: const EdgeInsets.all(1.5), // gradient border thickness
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: AppColors.primaryGradient, // ✅ gradient border
@@ -20,7 +20,7 @@ class CustomAlerts extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Color(0xff101828), // inside color
+          color: Color(0xff101828),
           borderRadius: BorderRadius.circular(10),
         ),
       child: Column(
@@ -39,7 +39,7 @@ class CustomAlerts extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                 decoration: BoxDecoration(
                   color: Colors.grey[100],
                   borderRadius: BorderRadius.circular(10),

@@ -9,24 +9,26 @@ import 'package:top_talent_agency/features/manager/widget/live_chart.dart';
 import 'package:top_talent_agency/features/manager/widget/profile_card.dart';
 import 'package:top_talent_agency/features/manager/widget/progress_card.dart';
 
+import '../../../common/custom_color.dart';
+
 class ManagerDetailsScreen extends StatelessWidget {
   const ManagerDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF4F5F7),
+      backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: ( Icon(Icons.arrow_back_ios, color: Colors.black, size: 18))),
+        }, icon: ( Icon(Icons.arrow_back_ios, color: Colors.white, size: 18))),
         title: const Text(
           "Manager details",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -38,22 +40,25 @@ class ManagerDetailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: const EdgeInsets.all(14),
+              padding: const EdgeInsets.all(1.5),
               decoration: BoxDecoration(
-                gradient: const LinearGradient(
+                gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [
-                    Color(0xff0B1220),
-                    Color(0xff1A2A3A),
-                  ],
+                  colors: AppColors.primaryGradient,
                 ),
                 borderRadius: BorderRadius.circular(16),
               ),
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(14),
+                ),
               child: ProfileCard(),
             ),
+          ),
             const SizedBox(height: 14),
-
             ActionTile(title: "View Assigned Creators", iconPath: 'assets/user.svg', onTap: (){
               Navigator.push(context, MaterialPageRoute(
                 builder: (_) => const ViewAssignCreatorsScreen(role: UiUserRole.admin,),
@@ -68,7 +73,7 @@ class ManagerDetailsScreen extends StatelessWidget {
                   TextEditingController _textController = TextEditingController();
                   return AlertDialog(
                     backgroundColor: Colors.white,
-                    title: const Text("User name"),
+                    title: const Text("User name",style: TextStyle(color: Colors.black),),
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -76,6 +81,9 @@ class ManagerDetailsScreen extends StatelessWidget {
                           controller: _textController,
                           decoration: InputDecoration(
                             hintText: 'Search',
+                            hintStyle: const TextStyle(
+                              color: Colors.black,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(21),
                             ),
@@ -122,7 +130,7 @@ class ManagerDetailsScreen extends StatelessWidget {
             const SizedBox(height: 18),
             const Text(
               "December Overview",
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(color:Colors.white,fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 10),
             const CustomPichart(),
@@ -131,20 +139,29 @@ class ManagerDetailsScreen extends StatelessWidget {
             AiAnalysisCard(),
 
             const SizedBox(height: 18),
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-              ),
+      Container(
+        padding: const EdgeInsets.all(1.5),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: AppColors.primaryGradient,
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Color(0xff101828),
+            borderRadius: BorderRadius.circular(15),
+          ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
                     "Target vs Actual (Current Month)",
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                    style: TextStyle(color:Colors.white,fontWeight: FontWeight.w600),
                   ),
-
                   const SizedBox(height: 10),
                   ProgressCard(
                     subtitle: "120.0%",
@@ -153,7 +170,6 @@ class ManagerDetailsScreen extends StatelessWidget {
                     left: "13,057 / 10,881",
                     right: "+2,176",
                   ),
-
                   const SizedBox(height: 10),
                   ProgressCard(
                     subtitle: "114.4%",
@@ -165,7 +181,7 @@ class ManagerDetailsScreen extends StatelessWidget {
                 ],
               ),
             ),
-
+          ),
             const SizedBox(height: 20),
             const LiveChart(),
 

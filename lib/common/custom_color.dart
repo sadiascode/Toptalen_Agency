@@ -12,8 +12,4 @@ class AppColors {
 
   ];
 
-  static const List<Color> darkGradient = [
-    Color(0xff0F172A),
-    Color(0xff1E293B),
-  ];
 }

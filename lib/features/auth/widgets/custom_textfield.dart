@@ -26,6 +26,10 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       obscureText: widget.isPassword ? _obscureText : false,
       decoration: InputDecoration(
         hintText: widget.hintText,
+        hintStyle: const TextStyle(
+          color: Colors.white70, //  hint text color
+          fontSize: 15,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -37,6 +41,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
             _obscureText
                 ? Icons.visibility_off
                 : Icons.visibility,
+            color: Colors.white70,
           ),
           onPressed: () {
             setState(() {

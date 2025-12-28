@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../common/custom_color.dart';
+
 class CustomOption extends StatefulWidget {
   final String name;
   final String email;
@@ -24,15 +26,22 @@ class _CustomAssignState extends State<CustomOption> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 165,
-      width: 382,
+      width: double.infinity,
+      padding: const EdgeInsets.all(1.5), //  gradient thickness
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Color(0xFFE0E0E0),
-          width: 1,
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: AppColors.primaryGradient,
         ),
+        borderRadius: BorderRadius.circular(16),
       ),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(14),
+        ),
         child: Padding(
           padding: const EdgeInsets.only(left: 18.0),
       child: Column(
@@ -40,14 +49,14 @@ class _CustomAssignState extends State<CustomOption> {
         children: [
           Row(
             children: [
-              Icon(Icons.person_outline, size: 20, color: Colors.grey[600]),
+              Icon(Icons.person_outline, size: 20, color: Colors.white),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   widget.name,
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.black87,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -62,13 +71,13 @@ class _CustomAssignState extends State<CustomOption> {
           // Email
           Row(
             children: [
-              Icon(Icons.email_outlined, size: 20, color: Colors.grey[600]),
+              Icon(Icons.email_outlined, size: 20, color: Colors.white),
               const SizedBox(width: 8),
               Text(
                 widget.email,
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.black87,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -77,13 +86,13 @@ class _CustomAssignState extends State<CustomOption> {
 
           Row(
             children: [
-              Icon(Icons.remove_red_eye_outlined, size: 20, color: Colors.grey[600]),
+              Icon(Icons.remove_red_eye_outlined, size: 20, color: Colors.white),
               const SizedBox(width: 8),
               Text(
                 widget.password,
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.black87,
+                  color: Colors.white,
                   letterSpacing: 2,
                 ),
               ),
@@ -94,20 +103,21 @@ class _CustomAssignState extends State<CustomOption> {
 
           Row(
             children: [
-              Icon(Icons.calendar_today_outlined, size: 18, color: Colors.grey[600]),
+              Icon(Icons.calendar_today_outlined, size: 18, color: Colors.white),
               const SizedBox(width: 8),
               Text(
                 widget.dateTime,
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.black87,
+                  color: Colors.white,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
-     ),
-    );
+    ),
+  );
   }
 }

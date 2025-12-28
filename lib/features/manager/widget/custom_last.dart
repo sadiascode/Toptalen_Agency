@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../common/custom_color.dart';
+
 class CustomLast extends StatelessWidget {
   const CustomLast({
     super.key,
@@ -12,18 +14,24 @@ class CustomLast extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-          height: 92,
-          width: 175,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: Colors.grey[300]!,
-              width: 1,
-            ),
-          ),
+      Container(
+      height: 92,
+      width: 175,
+      padding: const EdgeInsets.all(1.5),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: AppColors.primaryGradient,
+        ),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+        decoration: BoxDecoration(
+          color: Color(0xff101828),
+          borderRadius: BorderRadius.circular(19),
+        ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,13 +44,14 @@ class CustomLast extends StatelessWidget {
                 'assets/last.svg',
                 height: 17,
                 width: 17,
+                color: Colors.white,
               ),
               const SizedBox(width: 8),
               const Text(
                 "Last Sync",
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.black54,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -53,26 +62,33 @@ class CustomLast extends StatelessWidget {
             style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.w600,
-              color: Colors.black87,
+              color: Colors.white,
             ),
           ),
         ],
+      ),
       ),
         ),
         SizedBox(width: 10),
 
         Container(
-          height: 92,
-          width: 175,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: Colors.grey[300]!,
-              width: 1,
-            ),
-          ),
+        height: 92,
+        width: 175,
+        padding: const EdgeInsets.all(1.5),
+        decoration: BoxDecoration(
+        gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: AppColors.primaryGradient,
+        ),
+        borderRadius: BorderRadius.circular(20),
+        ),
+        child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+        decoration: BoxDecoration(
+          color: Color(0xff101828),
+        borderRadius: BorderRadius.circular(19),
+    ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -85,13 +101,14 @@ class CustomLast extends StatelessWidget {
                     'assets/circle.svg',
                     height: 17,
                     width: 17,
+                    color: Colors.white,
                   ),
                   const SizedBox(width: 8),
                   const Text(
                     "Status",
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.black54,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -103,7 +120,7 @@ class CustomLast extends StatelessWidget {
               vertical: MediaQuery.of(context).size.height * 0.005,
             ),
             decoration: BoxDecoration(
-              color: Colors.black,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(
@@ -111,13 +128,14 @@ class CustomLast extends StatelessWidget {
               style: TextStyle(
                 fontSize: MediaQuery.of(context).size.width * 0.032,
                 fontWeight: FontWeight.w600,
-                color: Colors.white,
+                color: Colors.black,
                  ),
                ),
              ),
             ],
           ),
         ),
+        )
       ],
     );
   }

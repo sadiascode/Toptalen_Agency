@@ -12,7 +12,7 @@ class CustomText extends StatelessWidget {
           'Recent Activity',
           style: TextStyle(
             fontSize: 13,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         SizedBox(height: 7),
@@ -36,12 +36,12 @@ class CustomText extends StatelessWidget {
               children: const [
                 Text(
                   'Assigned creator to target',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12,color: Colors.white,),
                 ),
                 SizedBox(height: 2),
                 Text(
                   '03/12/2025',
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
+                  style: TextStyle(fontSize: 12, color:  Color(0xffC5C5C5)),
                 ),
               ],
             ),
@@ -69,12 +69,12 @@ class CustomText extends StatelessWidget {
               children: const [
                 Text(
                   'Target updated successfully',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12,color: Colors.white,),
                 ),
                 SizedBox(height: 2),
                 Text(
                   '04/12/2025',
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
+                  style: TextStyle(fontSize: 12, color:  Color(0xffC5C5C5)),
                 ),
               ],
             ),

@@ -37,7 +37,7 @@ class _CustomMinicontainerState extends State<CustomMinicontainer> {
       onTap: () {
       },
       child: Container(
-        padding: const EdgeInsets.all(2),
+        padding: const EdgeInsets.all(1.5),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: AppColors.primaryGradient,
@@ -48,7 +48,7 @@ class _CustomMinicontainerState extends State<CustomMinicontainer> {
           width: w * 0.45,
           height: h * 0.20,
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: Color(0xff101828),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
