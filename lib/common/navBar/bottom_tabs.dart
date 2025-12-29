@@ -26,6 +26,15 @@ final List<BottomTabItem> bottomTabs = [
   ),
 
   BottomTabItem(
+    label: "Rank",
+    icon: Icons.equalizer_sharp,
+    page: const SizedBox(),
+    admin: false,
+    manager: false,
+    creator: true,
+  ),
+
+  BottomTabItem(
     label: "Targets",
     icon: Icons.track_changes,
     page: const TargetsScreen(),

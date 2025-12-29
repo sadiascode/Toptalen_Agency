@@ -174,7 +174,7 @@ class SarasRank extends StatelessWidget {
             const SizedBox(height: 30),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16),
-          padding: const EdgeInsets.all(2), // 👈 border thickness
+          padding: const EdgeInsets.all(1.5), //  border thickness
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
@@ -184,7 +184,7 @@ class SarasRank extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
           child: Container(
-            height: 500,
+            height: 520,
             width: double.infinity,
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(

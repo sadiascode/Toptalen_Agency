@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
 
-                const SizedBox(width: 20),
+                const SizedBox(width: 10),
 
                 InkWell(
                   onTap: () {
@@ -73,6 +73,23 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                       const Text("Manager"),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() => selectedRole = UiUserRole.creator);
+                  },
+                  child: Row(
+                    children: [
+                      Radio<UiUserRole>(
+                        value: UiUserRole.creator,
+                        groupValue: selectedRole,
+                        onChanged: (v) {
+                          setState(() => selectedRole = v!);
+                        },
+                      ),
+                      const Text("Creator"),
                     ],
                   ),
                 ),

@@ -4,6 +4,7 @@ import 'package:top_talent_agency/common/navBar/bottom_tabs.dart';
 import 'package:top_talent_agency/common/navBar/custom_bottom_navbar.dart';
 import 'package:top_talent_agency/core/roles.dart';
 import 'package:top_talent_agency/features/alert/screen/alerts_screen.dart';
+import 'package:top_talent_agency/features/creator/creators_rank.dart';
 import 'package:top_talent_agency/features/home/screen/home_screen.dart';
 import 'package:top_talent_agency/features/manager/screen/view_assign_creator_screen.dart';
 
@@ -25,10 +26,15 @@ class _AppShellState extends State<AppShell> {
     return bottomTabs.where((tab) {
       if (widget.role == UiUserRole.admin) {
         return tab.admin;
+      } else if (widget.role == UiUserRole.manager) {
+        return tab.manager;
+      } else if (widget.role == UiUserRole.creator) {
+        return tab.creator;
+      } else {
+        return false;
       }
-      return tab.manager;
     }).map((tab) {
-
+      // Center tab logic
       if (tab.isCenter) {
         return BottomTabItem(
           label: tab.label,
@@ -40,6 +46,7 @@ class _AppShellState extends State<AppShell> {
         );
       }
 
+      // Creators tab for manager
       if (tab.label == "Creators") {
         return BottomTabItem(
           label: tab.label,
@@ -50,6 +57,7 @@ class _AppShellState extends State<AppShell> {
         );
       }
 
+      // Alerts tab
       if (tab.label == "Alerts") {
         return BottomTabItem(
           label: tab.label,
@@ -57,6 +65,16 @@ class _AppShellState extends State<AppShell> {
           admin: tab.admin,
           manager: tab.manager,
           page: AlertsScreen(role: widget.role),
+        );
+      }
+
+      // Rank tab (only for creator)
+      if (tab.label == "Rank") {
+        return BottomTabItem(
+          label: tab.label,
+          icon: tab.icon,
+          creator: tab.creator,
+          page: CreatorsRank(role: widget.role),
         );
       }
 

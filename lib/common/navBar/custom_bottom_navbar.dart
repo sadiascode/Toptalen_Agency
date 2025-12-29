@@ -18,7 +18,7 @@ class CustomBottomNav extends StatelessWidget {
     final centerIndex = tabs.indexWhere((e) => e.isCenter);
 
     return SizedBox(
-      height: 96,
+      height: 72,
       child: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.bottomCenter,

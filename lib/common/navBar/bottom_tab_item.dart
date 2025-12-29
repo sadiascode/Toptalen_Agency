@@ -6,6 +6,7 @@ class BottomTabItem {
   final Widget page;
   final bool admin;
   final bool manager;
+  final bool creator;
   final bool isCenter;
 
   BottomTabItem({
@@ -13,6 +14,7 @@ class BottomTabItem {
     required this.icon,
     required this.page,
     this.admin = true,
+    this.creator = true,
     this.manager = true,
     this.isCenter = false,
   });

@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   bool get isAdmin => role == UiUserRole.admin;
 
   bool get isManager => role == UiUserRole.manager;
+  bool get isCreator => role == UiUserRole.creator;
 
   @override
   Widget build(BuildContext context) {

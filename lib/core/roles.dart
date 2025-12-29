@@ -1,6 +1,7 @@
 enum UiUserRole {
   admin,
   manager,
+  creator,
 }
 
 
