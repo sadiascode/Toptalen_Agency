@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:top_talent_agency/features/manager/screen/creator_details_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_talent_agency/features/manager/screen/saras_rank.dart';
-
-
 import 'package:top_talent_agency/core/roles.dart';
-
 import '../../../common/custom_color.dart';
 
 class ViewAssignCreatorsScreen extends StatelessWidget {

@@ -13,9 +13,9 @@ class BottomTabItem {
     required this.label,
     required this.icon,
     required this.page,
-    this.admin = true,
-    this.creator = true,
-    this.manager = true,
+    this.admin = false,
+    this.creator = false,
+    this.manager = false,
     this.isCenter = false,
   });
 }

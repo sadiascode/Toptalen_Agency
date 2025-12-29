@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:top_talent_agency/features/manager/widget/custom_rankcoin.dart';
-
 import '../../../common/custom_color.dart';
 import '../../core/roles.dart';
 
@@ -22,7 +21,7 @@ class CreatorsRank extends StatelessWidget {
         backgroundColor: Colors.black,
       );
     }
-    // 👇 ONLY THIS else IS ADDED
+    //  ONLY THIS else IS ADDED
     else {
       return Scaffold(
         backgroundColor: Colors.black,
@@ -30,9 +29,6 @@ class CreatorsRank extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.black,
-          leading: IconButton(onPressed: () {
-            Navigator.pop(context);
-          }, icon: (Icon(Icons.arrow_back_ios, color: Colors.white, size: 18))),
           title: const Text(
             "Your rank",
             style: TextStyle(
@@ -203,8 +199,23 @@ class CreatorsRank extends StatelessWidget {
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: SingleChildScrollView(
-                    child: Column(
+                 child: Column(
+                    children: [
+                    // Fixed
+                    CustomRankcoin(
+                    rank: '1',
+                    name: "Sara",
+                    hours: '10.5h',
+                    followers: '50,000 followers',
+                    coins: '3,500',
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  // Scrollable
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
                         children: [
                           SizedBox(height: 10),
                           CustomRankcoin(
@@ -212,7 +223,7 @@ class CreatorsRank extends StatelessWidget {
                               name: "Sarah Johnson",
                               hours: '5.6h',
                               followers: '18,200 followers',
-                              coins: '1,743'
+                              coins: '1,880'
                           ),
                           SizedBox(height: 20),
 
@@ -278,12 +289,14 @@ class CreatorsRank extends StatelessWidget {
                               coins: '1,743'
                           ),
                           SizedBox(height: 20),
-
-                        ]
-                    ),
+                            ]
+                          ),
+                        ),
+                      ),
+                    ]
                   ),
-                ),
-              ),
+                )
+              )
             ],
           ),
         ),

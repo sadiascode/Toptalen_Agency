@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:top_talent_agency/features/target/widget/custom_targets.dart';
 
+import '../../../core/roles.dart';
+
 class TargetsScreen extends StatelessWidget {
-  const TargetsScreen({super.key});
+  final UiUserRole role;
+  const TargetsScreen({super.key, required this.role});
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +16,15 @@ class TargetsScreen extends StatelessWidget {
           backgroundColor: Colors.black,
           elevation: 0,
           title: Text(
-          "Total targets for Agency",
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+            role == UiUserRole.creator
+                ? "Targets for you"
+                : "Total targets for Agency",
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
         ),
         body: SingleChildScrollView(
             child: Padding(

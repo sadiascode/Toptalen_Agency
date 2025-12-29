@@ -8,6 +8,8 @@ import 'package:top_talent_agency/features/creator/creators_rank.dart';
 import 'package:top_talent_agency/features/home/screen/home_screen.dart';
 import 'package:top_talent_agency/features/manager/screen/view_assign_creator_screen.dart';
 
+import '../features/target/screen/target_screen.dart';
+
 class AppShell extends StatefulWidget {
   final UiUserRole role;
 
@@ -18,41 +20,41 @@ class AppShell extends StatefulWidget {
 }
 
 class _AppShellState extends State<AppShell> {
-  int index = 2;
+  int index = 0;
 
   late final List<GlobalKey<NavigatorState>> _navigatorKeys;
 
   List<BottomTabItem> get visibleTabs {
     return bottomTabs.where((tab) {
-      if (widget.role == UiUserRole.admin) {
-        return tab.admin;
-      } else if (widget.role == UiUserRole.manager) {
-        return tab.manager;
-      } else if (widget.role == UiUserRole.creator) {
-        return tab.creator;
-      } else {
-        return false;
-      }
+      if (widget.role == UiUserRole.admin) return tab.admin;
+      if (widget.role == UiUserRole.manager) return tab.manager;
+      if (widget.role == UiUserRole.creator) return tab.creator;
+      return false;
     }).map((tab) {
-      // Center tab logic
+      // Center tab
       if (tab.isCenter) {
         return BottomTabItem(
           label: tab.label,
           icon: tab.icon,
           isCenter: true,
-          admin: tab.admin,
-          manager: tab.manager,
           page: HomeScreen(role: widget.role),
         );
       }
 
-      // Creators tab for manager
+      // Targets tab
+      if (tab.label == "Targets") {
+        return BottomTabItem(
+          label: tab.label,
+          icon: tab.icon,
+          page: TargetsScreen(role: widget.role),
+        );
+      }
+
+      // Creators tab
       if (tab.label == "Creators") {
         return BottomTabItem(
           label: tab.label,
           icon: tab.icon,
-          admin: tab.admin,
-          manager: tab.manager,
           page: ViewAssignCreatorsScreen(role: widget.role),
         );
       }
@@ -62,18 +64,15 @@ class _AppShellState extends State<AppShell> {
         return BottomTabItem(
           label: tab.label,
           icon: tab.icon,
-          admin: tab.admin,
-          manager: tab.manager,
           page: AlertsScreen(role: widget.role),
         );
       }
 
-      // Rank tab (only for creator)
+      // Rank tab
       if (tab.label == "Rank") {
         return BottomTabItem(
           label: tab.label,
           icon: tab.icon,
-          creator: tab.creator,
           page: CreatorsRank(role: widget.role),
         );
       }
@@ -86,12 +85,18 @@ class _AppShellState extends State<AppShell> {
   @override
   void initState() {
     super.initState();
-    _navigatorKeys = List.generate(6, (_) => GlobalKey<NavigatorState>());
+    final tabs = visibleTabs;
+    _navigatorKeys = List.generate(tabs.length, (_) => GlobalKey<NavigatorState>());
+    final centerIndex = tabs.indexWhere((tab) => tab.isCenter);
+    index = centerIndex >= 0 ? centerIndex : 0;
   }
 
   @override
   Widget build(BuildContext context) {
     final tabs = visibleTabs;
+
+    // Safety check
+    if (index >= tabs.length) index = 0;
 
     return Scaffold(
       body: IndexedStack(
@@ -99,11 +104,7 @@ class _AppShellState extends State<AppShell> {
         children: List.generate(tabs.length, (i) {
           return Navigator(
             key: _navigatorKeys[i],
-            onGenerateRoute: (_) {
-              return MaterialPageRoute(
-                builder: (_) => tabs[i].page,
-              );
-            },
+            onGenerateRoute: (_) => MaterialPageRoute(builder: (_) => tabs[i].page),
           );
         }),
       ),
@@ -112,9 +113,7 @@ class _AppShellState extends State<AppShell> {
         currentIndex: index,
         onTap: (i) {
           if (i == index) {
-            _navigatorKeys[i]
-                .currentState
-                ?.popUntil((route) => route.isFirst);
+            _navigatorKeys[i].currentState?.popUntil((route) => route.isFirst);
           } else {
             setState(() => index = i);
           }

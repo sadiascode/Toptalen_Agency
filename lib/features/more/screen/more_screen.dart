@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_talent_agency/common/custom_button.dart';
 import 'package:top_talent_agency/core/roles.dart';
 import 'package:top_talent_agency/features/more/screen/add_screen.dart';
@@ -212,7 +211,8 @@ class MoreScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20),
-                  CustomButton(text: "Sign Out", onTap: (){})
+                  CustomButton(text: "Sign Out", onTap: (){}),
+                  SizedBox(height: 10),
               ]
             ),
           ),

@@ -8,7 +8,6 @@ import 'package:top_talent_agency/features/manager/widget/custom_last.dart';
 import 'package:top_talent_agency/features/manager/widget/live_chart.dart';
 import 'package:top_talent_agency/features/manager/widget/profile_card.dart';
 import 'package:top_talent_agency/features/manager/widget/progress_card.dart';
-
 import '../../../common/custom_color.dart';
 
 class ManagerDetailsScreen extends StatelessWidget {

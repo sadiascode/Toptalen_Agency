@@ -89,8 +89,8 @@ class CustomBottomNav extends StatelessWidget {
   }
 
   Widget _centerButton(int index) {
+    if (index < 0) return const SizedBox(); // no center button if hidden
     final isSelected = currentIndex == index;
-
     return GestureDetector(
       onTap: () => onTap(index),
       child: Container(
@@ -100,24 +100,14 @@ class CustomBottomNav extends StatelessWidget {
           shape: BoxShape.circle,
           color: const Color(0xFF6D5DF6),
           border: isSelected
-              ? Border.all(
-            color: const Color(0xffA9C0FF),
-            width: 4,
-          )
+              ? Border.all(color: const Color(0xffA9C0FF), width: 4)
               : null,
           boxShadow: const [
             BoxShadow(
-              color: Colors.black26,
-              blurRadius: 12,
-              offset: Offset(0, 6),
-            ),
+                color: Colors.black26, blurRadius: 12, offset: Offset(0, 6))
           ],
         ),
-        child: const Icon(
-          Icons.home_outlined,
-          color: Colors.white,
-          size: 26,
-        ),
+        child: const Icon(Icons.home_outlined, color: Colors.white, size: 26),
       ),
     );
   }

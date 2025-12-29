@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:top_talent_agency/features/manager/screen/manager_details_screen.dart';
 import 'package:top_talent_agency/features/manager/screen/manager_rank.dart';
 import 'package:top_talent_agency/features/manager/widget/custom_sortview.dart';
 import '../widget/custom_search.dart';
