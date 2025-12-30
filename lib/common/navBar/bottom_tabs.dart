@@ -63,7 +63,7 @@ final List<BottomTabItem> bottomTabs = [
   BottomTabItem(
     label: "More",
     icon: Icons.settings_outlined,
-    page: const MoreScreen(),
+    page: const SizedBox(),
     admin: true,
     manager: true,
     creator: true,

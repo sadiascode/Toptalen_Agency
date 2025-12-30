@@ -4,6 +4,7 @@ import 'package:top_talent_agency/features/home/widget/custom_alerts.dart';
 import 'package:top_talent_agency/features/home/widget/custom_minicontainer.dart';
 import 'package:top_talent_agency/features/home/widget/custom_pichart.dart';
 import 'package:top_talent_agency/features/home/widget/custom_summary.dart';
+import '../widget/custom_both.dart';
 import '../widget/custom_coin.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,7 +13,6 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.role});
 
   bool get isAdmin => role == UiUserRole.admin;
-
   bool get isManager => role == UiUserRole.manager;
   bool get isCreator => role == UiUserRole.creator;
 
@@ -59,7 +59,11 @@ class HomeScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      isAdmin ? 'Admin User' : 'Sarah Johnson',
+                      role == UiUserRole.admin
+                          ? 'Akhil Doe'
+                          : role == UiUserRole.manager
+                          ? 'Sarah Johnson'
+                          : 'John Doe',
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -67,13 +71,17 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      isAdmin ? 'Welcome back, Admin' : 'Welcome back, Manager',
+                      role == UiUserRole.admin
+                          ? 'Welcome back, Admin'
+                          : role == UiUserRole.manager
+                          ? 'Welcome back, Manager'
+                          : 'Welcome back, Creator',
                       style: const TextStyle(
                         fontSize: 14,
                         color: Color(0xffA2A3A3),
                       ),
                     ),
-                  ],
+                  ]
                 ),
               ],
             ),
@@ -99,23 +107,25 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(color:Colors.white,fontWeight: FontWeight.w600, fontSize: 15),
                   ),
                 ),
+                ],
+              if (role == UiUserRole.manager || role == UiUserRole.creator) ...[
 
                 const SizedBox(height: 15),
                 Row(
                   children: [
-                    CustomMinicontainer(
-                      title: "My Creators",
-                      subtitle: "↑ 5.2% from last month",
+                    CustomBoth(
+                      title: isManager ? "My Creators" : "My Rank",
                       iconPath: 'assets/user.svg',
-                      number: 1000,
+                      iconColor:Color(0xff6A7282),
+                      number: 10666,
                       subtitleColor: Color(0xff00A63E),
                     ),
                     SizedBox(width: 9),
-                    CustomMinicontainer(
+                    CustomBoth(
                       title: "Today's Coins",
-                      subtitle: "↑ Avg 120 creators each",
-                      iconPath: 'assets/icons.svg',
-                      number: 20,
+                      iconPath: 'assets/coin.svg',
+                      iconColor:Color(0xffF0B100),
+                      number: 2035,
                     ),
                   ],
                 ),
@@ -123,18 +133,18 @@ class HomeScreen extends StatelessWidget {
 
                 Row(
                   children: [
-                    CustomMinicontainer(
+                    CustomBoth(
                       title: "Today's Hours",
-                      subtitle: "20.0% of total",
                       iconPath: 'assets/clock.svg',
-                      number: 240,
+                      iconColor:Color(0xff2B7FFF),
+                      number: 24560,
                       subtitleColor: Color((0xffF54900)),
                     ),
                     SizedBox(width: 9),
-                    CustomMinicontainer(
+                    CustomBoth(
                       title: "Alerts",
-                      subtitle: "Last: 30 mins ago",
-                      iconPath: 'assets/alert.svg',
+                      iconPath: 'assets/Alert.svg',
+                      iconColor:Color(0xffCF5050),
                       number: 45623,
                     ),
                   ],

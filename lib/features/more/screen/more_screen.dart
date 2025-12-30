@@ -8,7 +8,9 @@ import 'package:top_talent_agency/features/more/widget/custom_more.dart';
 import '../../../common/custom_color.dart';
 
 class MoreScreen extends StatelessWidget {
-  const MoreScreen({super.key});
+  final UiUserRole role;
+  const MoreScreen({super.key, required this.role});
+  bool get isAdmin => role == UiUserRole.admin;
 
   @override
   Widget build(BuildContext context) {
@@ -157,6 +159,7 @@ class MoreScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  if (isAdmin) ...[
                   SizedBox(height: 20),
                   CustomMore(
                     sectionIcon: Icons.admin_panel_settings_outlined,
@@ -186,6 +189,8 @@ class MoreScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                ],
+                 if (isAdmin) ...[
                   SizedBox(height: 20),
                   CustomMore(
                     sectionIcon: Icons.link,
@@ -210,10 +215,51 @@ class MoreScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
-                  CustomButton(text: "Sign Out", onTap: (){}),
-                  SizedBox(height: 10),
-              ]
+                  ],
+                  SizedBox(height: 30),
+                  CustomButton(text: "Sign Out", onTap: (){
+                    showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        backgroundColor: Colors.grey[900],
+                        title: Text(
+                          "Confirm Sign Out",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        content: Text(
+                          "Are you sure you want to sign out?",
+                          style: TextStyle(color: Colors.white70),
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(
+                              "Cancel",
+                              style: TextStyle(color: Colors.blue),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              // Need to Add sign-out logic
+                              // For example: AuthService.signOut();
+                            },
+                            child: Text(
+                              "Sign Out",
+                              style: TextStyle(color: Colors.red),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+               ),
+             SizedBox(height: 10),
+              ],
             ),
           ),
     );
