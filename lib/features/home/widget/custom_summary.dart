@@ -90,13 +90,14 @@ class CustomSummary extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   'Nadia is significantly underperforming across all metrics. Coins are 37% below target, hours are inconsistent, and follower growth has stalled.',
-                  style: TextStyle(
+                  textAlign: TextAlign.start,
+                  style:const TextStyle(
                     fontSize: 14,
                     color: Colors.white,
-                    height: 1,
+                    height: 1.6,
                   ),
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 15),
                 _buildBulletPoint('Schedule one-on-one coaching session to identify blockers'),
                 const SizedBox(height: 6),
                 _buildBulletPoint('Review content strategy and posting schedule'),
@@ -194,7 +195,7 @@ class CustomSummary extends StatelessWidget {
           width: 4,
           height: 4,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xffAD46FF),
             shape: BoxShape.circle,
           ),
         ),

@@ -105,55 +105,82 @@ class CustomAlert extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      TextEditingController _textController = TextEditingController();
-                      return AlertDialog(
-                        backgroundColor: Colors.white,
-                        title: const Text("Create notification"),
-                        content: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            TextField(
-                              controller: _textController,
-                              decoration: InputDecoration(
-                                hintText: 'Type your message',
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(21),
+                      final TextEditingController _textController = TextEditingController();
+
+                      return Dialog(
+                        insetPadding: const EdgeInsets.symmetric(horizontal: 35), //dialog wider
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Text(
+                                "Create notification",
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        actions: [
-                          GestureDetector(
-                            onTap: () {
-                              String reason = _textController.text.trim();
-                              if (reason.isNotEmpty) {
-                                print("Reason: $reason");
-                              }
-                              Navigator.of(context).pop();
-                            },
-                            child: Container(
-                              height: 45,
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Center(
+                              const SizedBox(height: 16),
+                              Align(
+                                alignment: Alignment.centerLeft,
                                 child: const Text(
-                                  "Send notification",
-                                  textAlign: TextAlign.center,
+                                  "Message",
                                   style: TextStyle(
-                                    color: Colors.white,
                                     fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               ),
-                            ),
+                              SizedBox(height: 10),
+                              // TextField
+                              TextField(
+                                controller: _textController,
+                                maxLines: 4, //height
+                                decoration: InputDecoration(
+                                  hintText: 'Type your message',
+                                  contentPadding: const EdgeInsets.all(16),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(21),
+                                  ),
+                                ),
+                              ),
+
+                              const SizedBox(height: 20),
+
+                              //   button
+                              GestureDetector(
+                                onTap: () {
+                                  final reason = _textController.text.trim();
+                                  if (reason.isNotEmpty) {
+                                    print("Reason: $reason");
+                                  }
+                                  Navigator.of(context).pop();
+                                },
+                                child: Container(
+                                  height: 50,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(22),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: const Text(
+                                    "Send notification",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       );
                     },
                   );

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomTextfield extends StatefulWidget {
-  final String hintText;
+  final String? hintText;
   final bool isPassword;
   final TextEditingController? controller;
+  final Color textColor;
 
   const CustomTextfield({
     super.key,
-    required this.hintText,
+    this.hintText,
     this.isPassword = false,
     this.controller,
+    this.textColor = Colors.black, // 👈 default
   });
 
   @override
@@ -22,19 +24,21 @@ class _CustomTextfieldState extends State<CustomTextfield> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: widget.controller, 
+      controller: widget.controller,
       obscureText: widget.isPassword ? _obscureText : false,
+      style: TextStyle(
+        color: widget.textColor, // 👈 inside text color
+        fontSize: 15,
+      ),
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: const TextStyle(
-          color: Colors.white70, //  hint text color
+          color: Colors.white70,
           fontSize: 15,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
         ),
-
-        // 👁 PASSWORD TOGGLE ICON
         suffixIcon: widget.isPassword
             ? IconButton(
           icon: Icon(

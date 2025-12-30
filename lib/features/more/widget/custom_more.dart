@@ -82,9 +82,9 @@ class CustomMore extends StatelessWidget {
 
   Widget _buildSettingItem(SettingItemData item) {
     return InkWell(
-      onTap: item.onTap,
+      onTap: item.isSwitch ? null : item.onTap,
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Row(
           children: [
             Expanded(
@@ -95,7 +95,7 @@ class CustomMore extends StatelessWidget {
                     children: [
                       Text(
                         item.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
@@ -103,41 +103,52 @@ class CustomMore extends StatelessWidget {
                       ),
                       if (item.badge != null) ...[
                         const SizedBox(width: 12),
-
-                       Container(
-                           padding: EdgeInsets.symmetric(
-                           horizontal: 14, vertical: 6),
-                           decoration: BoxDecoration(
-                           color: Colors.black,
-                           borderRadius: BorderRadius.circular(8),
-                           border: Border.all(
-                           color: Colors.grey[200]!,
-                           width: 1,
-                           ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 14, vertical: 6),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: Colors.grey,
+                              width: 1,
+                            ),
                           ),
-                          child:Text(
-                          item.badge!,
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.white,
+                          child: Text(
+                            item.badge!,
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                       ),
                       ],
                     ],
                   ),
                   const SizedBox(height: 4),
                   Text(
                     item.subtitle,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 13,
-                      color: Colors.white,
+                      color: Colors.white70,
                     ),
                   ),
                 ],
               ),
             ),
-            Icon(Icons.chevron_right, color: Colors.white, size: 23),
+
+            if (item.isSwitch)
+              Switch(
+                value: item.switchValue,
+                onChanged: item.onSwitchChanged,
+                activeColor: Colors.blue,
+              )
+            else
+              const Icon(
+                Icons.chevron_right,
+                color: Colors.white,
+                size: 23,
+              ),
           ],
         ),
       ),
@@ -149,12 +160,22 @@ class SettingItemData {
   final String title;
   final String subtitle;
   final String? badge;
+
   final VoidCallback? onTap;
+
+  // 🔥 switch related
+  final bool isSwitch;
+  final bool switchValue;
+  final ValueChanged<bool>? onSwitchChanged;
 
   SettingItemData({
     required this.title,
     required this.subtitle,
     this.badge,
     this.onTap,
+    this.isSwitch = false,
+    this.switchValue = false,
+    this.onSwitchChanged,
   });
 }
+

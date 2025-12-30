@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:top_talent_agency/common/custom_button.dart';
 import 'package:top_talent_agency/core/roles.dart';
+import 'package:top_talent_agency/features/auth/screens/login_screen.dart';
 import 'package:top_talent_agency/features/more/screen/add_screen.dart';
 import 'package:top_talent_agency/features/more/screen/edit_screen.dart';
 import 'package:top_talent_agency/features/more/widget/custom_more.dart';
 
 import '../../../common/custom_color.dart';
 
-class MoreScreen extends StatelessWidget {
+class MoreScreen extends StatefulWidget {
   final UiUserRole role;
   const MoreScreen({super.key, required this.role});
-  bool get isAdmin => role == UiUserRole.admin;
+
+  @override
+  State<MoreScreen> createState() => _MoreScreenState();
+}
+
+class _MoreScreenState extends State<MoreScreen> {
+  bool get isAdmin => widget.role == UiUserRole.admin;
+  bool pushNotification = true;
+  bool emailNotification = false;
 
   @override
   Widget build(BuildContext context) {
@@ -143,14 +152,24 @@ class MoreScreen extends StatelessWidget {
                       SettingItemData(
                         title: 'Push Notifications',
                         subtitle: 'Real-time alerts and updates',
-                        badge: 'On',
-                        onTap: () {},
+                        isSwitch: true,
+                        switchValue: pushNotification,
+                        onSwitchChanged: (value) {
+                          setState(() {
+                            pushNotification = value;
+                          });
+                        },
                       ),
                       SettingItemData(
                         title: 'Email Preferences',
                         subtitle: 'Daily digest and reports',
-                        badge: 'On',
-                        onTap: () {},
+                        isSwitch: true,
+                        switchValue: emailNotification,
+                        onSwitchChanged: (value) {
+                          setState(() {
+                            emailNotification = value;
+                          });
+                        },
                       ),
                       SettingItemData(
                         title: 'Alert Thresholds',
@@ -219,49 +238,80 @@ class MoreScreen extends StatelessWidget {
                   SizedBox(height: 30),
                   CustomButton(text: "Sign Out", onTap: (){
                     showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        backgroundColor: Colors.grey[900],
-                        title: Text(
-                          "Confirm Sign Out",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        content: Text(
-                          "Are you sure you want to sign out?",
-                          style: TextStyle(color: Colors.white70),
-                        ),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text(
-                              "Cancel",
-                              style: TextStyle(color: Colors.blue),
+                      context: context,
+                      builder: (context) {
+                        return Dialog(
+                          backgroundColor: Colors.grey[900],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          insetPadding: const EdgeInsets.symmetric(horizontal: 35), // wider
+                          child: Padding(
+                            padding: const EdgeInsets.all(24),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Confirm Sign Out",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 16),
+                                const Text(
+                                  "Are you sure you want to sign out?",
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 15,
+                                    height: 1.4,
+                                  ),
+                                ),
+                                const SizedBox(height: 24),
+
+                                // Buttons
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: const Text(
+                                        "Cancel",
+                                        style: TextStyle(color: Colors.blue, fontSize: 16),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) => LoginScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text(
+                                        "Sign Out",
+                                        style: TextStyle(color: Colors.red, fontSize: 16),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                              // Need to Add sign-out logic
-                              // For example: AuthService.signOut();
-                            },
-                            child: Text(
-                              "Sign Out",
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-               ),
+                        );
+                      },
+                    );
+                  },
+                ),
              SizedBox(height: 10),
               ],
             ),
           ),
-    );
+       );
   }
 }
