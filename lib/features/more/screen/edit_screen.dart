@@ -19,6 +19,7 @@ class _EditScreenState extends State<EditScreen> {
   final emailController = TextEditingController(text: "admin@company.com");
   final passwordController = TextEditingController(text: "password123");
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,7 +130,7 @@ class _EditScreenState extends State<EditScreen> {
                   ],
                 ),
                 SizedBox(height: 10),
-                CustomTextfield(hintText: "Enter Your old Password ",isPassword: true, textColor: Colors.white),
+                CustomTextfield(hintText: "Enter Your New Password ",isPassword: true, textColor: Colors.white),
 
               ],
             ),
