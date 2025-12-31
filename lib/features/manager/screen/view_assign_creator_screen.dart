@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_talent_agency/features/manager/screen/saras_rank.dart';
 import 'package:top_talent_agency/core/roles.dart';
 import '../../../common/custom_color.dart';
+import '../widget/custom_search.dart';
 
 class ViewAssignCreatorsScreen extends StatelessWidget {
   final UiUserRole role;
@@ -51,25 +52,7 @@ class ViewAssignCreatorsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 44,
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              decoration: BoxDecoration(
-                color: Color(0xff212121),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Row(
-                children: [
-                  Icon(Icons.search, color: Colors.white),
-                  SizedBox(width: 8),
-                  Text(
-                    "Search creators...",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
-            ),
-
+            CustomSearch(),
             const SizedBox(height: 12),
 
             Row(

@@ -121,7 +121,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       onTap: () { Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => const EditScreen(role: UiUserRole.admin,),
+                          builder: (_) =>  EditScreen(role: widget.role),
                         ),
                       );
                         },

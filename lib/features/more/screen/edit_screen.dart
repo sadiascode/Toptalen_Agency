@@ -5,20 +5,18 @@ import 'package:top_talent_agency/core/roles.dart';
 import 'package:top_talent_agency/features/auth/widgets/custom_textfield.dart';
 import 'package:top_talent_agency/features/more/widget/custom_align.dart';
 
-class EditScreen extends StatefulWidget {
+class EditScreen extends StatelessWidget {
   final UiUserRole role;
 
-  const EditScreen({super.key, required this.role});
+   EditScreen({super.key, required this.role});
 
-  @override
-  State<EditScreen> createState() => _EditScreenState();
-}
-
-class _EditScreenState extends State<EditScreen> {
   final nameController = TextEditingController(text: "Admin User");
   final emailController = TextEditingController(text: "admin@company.com");
   final passwordController = TextEditingController(text: "password123");
 
+  bool get isAdmin => role == UiUserRole.admin;
+  bool get isManager => role == UiUserRole.manager;
+  bool get isCreator => role == UiUserRole.creator;
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +32,16 @@ class _EditScreenState extends State<EditScreen> {
           },
           icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 18),
         ),
-        title: const Text(
-          "Edit Admin",
-          style: TextStyle(
-            color: Colors.white,
+        title:   Text(
+          role == UiUserRole.admin
+              ? 'Edit Admin'
+              : role == UiUserRole.manager
+              ? 'Edit Manager'
+              : 'Edit Creator',
+          style: const TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.w500,
+            color: Colors.white,
+            fontWeight: FontWeight.bold
           ),
         ),
       ),
@@ -93,7 +95,7 @@ class _EditScreenState extends State<EditScreen> {
             const SizedBox(height: 5),
             CustomTextfield(
               controller: nameController,
-              textColor: Colors.white, // 👈 only this screen
+              textColor: Colors.white, //  only this screen
             ),
 
             const SizedBox(height: 20),
