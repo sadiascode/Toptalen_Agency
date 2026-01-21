@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:top_talent_agency/features/auth/widgets/custom_screen.dart';
-import 'package:top_talent_agency/features/auth/widgets/custom_textfield.dart';
-import 'package:top_talent_agency/features/auth/screens/forgot_screen.dart';
 import 'package:top_talent_agency/common/app_shell.dart';
 import 'package:top_talent_agency/common/custom_button.dart';
 import 'package:top_talent_agency/core/roles.dart';
+
+import '../widgets/custom_screen.dart';
+import '../widgets/custom_textfield.dart';
+import 'forgot_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,8 +15,21 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  UiUserRole selectedRole = UiUserRole.admin;
   bool rememberMe = false;
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  UiUserRole? getRoleFromCredentials(String email, String password) {
+    if (email == "admin@gmail.com" && password == "123456") {
+      return UiUserRole.admin;
+    } else if (email == "manager@gmail.com" && password == "123456") {
+      return UiUserRole.manager;
+    } else if (email == "creator@gmail.com" && password == "123456") {
+      return UiUserRole.creator;
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,80 +50,23 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
 
             const SizedBox(height: 16),
-
-            Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    setState(() => selectedRole = UiUserRole.admin);
-                  },
-                  child: Row(
-                    children: [
-                      Radio<UiUserRole>(
-                        value: UiUserRole.admin,
-                        groupValue: selectedRole,
-                        onChanged: (v) {
-                          setState(() => selectedRole = v!);
-                        },
-                      ),
-                      const Text("Admin"),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(width: 10),
-
-                InkWell(
-                  onTap: () {
-                    setState(() => selectedRole = UiUserRole.manager);
-                  },
-                  child: Row(
-                    children: [
-                      Radio<UiUserRole>(
-                        value: UiUserRole.manager,
-                        groupValue: selectedRole,
-                        onChanged: (v) {
-                          setState(() => selectedRole = v!);
-                        },
-                      ),
-                      const Text("Manager"),
-                    ],
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() => selectedRole = UiUserRole.creator);
-                  },
-                  child: Row(
-                    children: [
-                      Radio<UiUserRole>(
-                        value: UiUserRole.creator,
-                        groupValue: selectedRole,
-                        onChanged: (v) {
-                          setState(() => selectedRole = v!);
-                        },
-                      ),
-                      const Text("Creator"),
-                    ],
-                  ),
-                ),
-              ],
+            const Text("Email"),
+            const SizedBox(height: 6),
+            CustomTextfield(
+              hintText: "Enter your email address",
+              controller: emailController,
             ),
 
-            const SizedBox(height: 16),
-            const Text("Email"),
-
-            const SizedBox(height: 6),
-            const CustomTextfield(hintText: "Enter your email address"),
-
             const SizedBox(height: 12),
-
             const Text("Password"),
             const SizedBox(height: 6),
+            CustomTextfield(
+              hintText: "Password",
+              isPassword: true,
+              controller: passwordController,
+            ),
 
-            const CustomTextfield(hintText: "Password",isPassword: true),
             const SizedBox(height: 10),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -144,12 +101,22 @@ class _LoginScreenState extends State<LoginScreen> {
             CustomButton(
               text: "Sign in",
               onTap: () {
+                final email = emailController.text.trim();
+                final password = passwordController.text.trim();
+
+                final role = getRoleFromCredentials(email, password);
+
+                if (role == null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Invalid email or password")),
+                  );
+                  return;
+                }
+
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => AppShell(
-                      role: selectedRole,
-                    ),
+                    builder: (_) => AppShell(role: role),
                   ),
                 );
               },

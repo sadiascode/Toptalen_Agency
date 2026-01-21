@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:top_talent_agency/common/custom_button.dart';
-import 'package:top_talent_agency/features/auth/widgets/custom_textfield.dart';
-
 import '../../../common/custom_color.dart';
+import '../../auth/ui/widgets/custom_textfield.dart';
 
 class CustomAssign extends StatelessWidget {
   const CustomAssign({

@@ -10,10 +10,10 @@ class CustomAlerts extends StatelessWidget {
     return Container(
       height: 266,
       width: 386,
-      padding: const EdgeInsets.all(1.5), // gradient border thickness
+      padding: const EdgeInsets.all(1.5),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: AppColors.primaryGradient, // ✅ gradient border
+          colors: AppColors.primaryGradient,
         ),
         borderRadius: BorderRadius.circular(12),
       ),
@@ -26,7 +26,6 @@ class CustomAlerts extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -56,8 +55,6 @@ class CustomAlerts extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-
-          // Alert Items
           _buildAlertItem(
             'Manager Lisa Anderson is underperforming - 59% of target',
             '13:31:55',
@@ -88,7 +85,6 @@ class CustomAlerts extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Red dot indicator
           Container(
             width: 8,
             height: 8,
@@ -98,7 +94,6 @@ class CustomAlerts extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          // Message
           Expanded(
             child: Text(
               message,
@@ -112,7 +107,6 @@ class CustomAlerts extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          // Time
           Text(
             time,
             style: TextStyle(

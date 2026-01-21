@@ -11,7 +11,7 @@ class CustomTextfield extends StatefulWidget {
     this.hintText,
     this.isPassword = false,
     this.controller,
-    this.textColor = Colors.black, //  default
+    this.textColor = Colors.black,
   });
 
   @override
@@ -27,13 +27,13 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       controller: widget.controller,
       obscureText: widget.isPassword ? _obscureText : false,
       style: TextStyle(
-        color: widget.textColor, // inside text color
+        color: widget.textColor,
         fontSize: 15,
       ),
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: const TextStyle(
-          color: Colors.white70,
+          color: Colors.black87,
           fontSize: 15,
         ),
         border: OutlineInputBorder(

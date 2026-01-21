@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:top_talent_agency/features/auth/widgets/custom_screen.dart';
-import 'package:top_talent_agency/features/auth/screens/reset_screen.dart';
+import 'package:top_talent_agency/features/auth/ui/screens/reset_screen.dart';
 import 'package:top_talent_agency/common/custom_button.dart';
+import '../widgets/custom_screen.dart';
 
 class VerifyScreen extends StatefulWidget {
   const VerifyScreen({super.key});

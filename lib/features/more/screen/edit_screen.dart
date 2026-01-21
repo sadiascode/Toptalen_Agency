@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:top_talent_agency/common/custom_button.dart';
 import 'package:top_talent_agency/core/roles.dart';
-import 'package:top_talent_agency/features/auth/widgets/custom_textfield.dart';
 import 'package:top_talent_agency/features/more/widget/custom_align.dart';
+
+import '../../auth/ui/widgets/custom_textfield.dart';
 
 class EditScreen extends StatelessWidget {
   final UiUserRole role;
