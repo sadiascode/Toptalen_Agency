@@ -5,10 +5,10 @@ import 'package:top_talent_agency/common/navBar/custom_bottom_navbar.dart';
 import 'package:top_talent_agency/core/roles.dart';
 import 'package:top_talent_agency/features/alert/screen/alerts_screen.dart';
 import 'package:top_talent_agency/features/creator/creators_rank.dart';
-import 'package:top_talent_agency/features/home/screen/home_screen.dart';
 import 'package:top_talent_agency/features/manager/screen/view_assign_creator_screen.dart';
 import 'package:top_talent_agency/features/more/screen/more_screen.dart';
 
+import '../features/home/ui/screen/home_screen.dart';
 import '../features/target/screen/target_screen.dart';
 
 class AppShell extends StatefulWidget {

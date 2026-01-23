@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:top_talent_agency/core/roles.dart';
 import 'package:top_talent_agency/features/home/widget/custom_alerts.dart';
 import 'package:top_talent_agency/features/home/widget/custom_minicontainer.dart';
 import 'package:top_talent_agency/features/home/widget/custom_pichart.dart';
 import 'package:top_talent_agency/features/home/widget/custom_summary.dart';
-import '../widget/custom_both.dart';
-import '../widget/custom_coin.dart';
+
+import '../../controller/admin/manager_controller.dart';
+import '../../widget/custom_both.dart';
+import '../../widget/custom_coin.dart';
 
 class HomeScreen extends StatelessWidget {
   final UiUserRole role;
@@ -18,6 +23,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ManagerController managerController = Get.put(ManagerController());
+
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: PreferredSize(
@@ -176,12 +184,28 @@ class HomeScreen extends StatelessWidget {
                       subtitleColor: Color(0xff00A63E),
                     ),
                     SizedBox(width: 9),
-                    CustomMinicontainer(
-                      title: "Managers",
-                      subtitle: "↑ Avg 120 creators each",
-                      iconPath: 'assets/m.svg',
-                      number: 20,
+                    Flexible(
+                      fit: FlexFit.loose,
+                      child: Obx(() {
+                        if (managerController.isLoading.value) {
+                          return CustomMinicontainer(
+                            title: "Managers",
+                            subtitle: "Loading...",
+                            iconPath: 'assets/m.svg',
+                            number: 0,
+                          );
+                        } else {
+                          return CustomMinicontainer(
+                            title: "Managers",
+                            subtitle: "↑ Avg 120 creators each",
+                            iconPath: 'assets/m.svg',
+                            number: managerController.managerCount.value,
+                          );
+                        }
+                      }),
                     ),
+
+
                   ],
                 ),
                 SizedBox(height: 15),

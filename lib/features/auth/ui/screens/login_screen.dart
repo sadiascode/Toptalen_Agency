@@ -1,38 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:top_talent_agency/common/app_shell.dart';
+import 'package:get/get.dart';
 import 'package:top_talent_agency/common/custom_button.dart';
-import 'package:top_talent_agency/core/roles.dart';
-
+import '../../controller/login_controller.dart';
 import '../widgets/custom_screen.dart';
 import '../widgets/custom_textfield.dart';
 import 'forgot_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  bool rememberMe = false;
-
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
-  UiUserRole? getRoleFromCredentials(String email, String password) {
-    if (email == "admin@gmail.com" && password == "123456") {
-      return UiUserRole.admin;
-    } else if (email == "manager@gmail.com" && password == "123456") {
-      return UiUserRole.manager;
-    } else if (email == "creator@gmail.com" && password == "123456") {
-      return UiUserRole.creator;
-    }
-    return null;
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final LoginController controller = Get.put(LoginController());
+
     return Scaffold(
       backgroundColor: const Color(0xFF0F172A),
       body: CustomScreen(
@@ -48,40 +28,35 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
             ),
-
             const SizedBox(height: 16),
-            const Text("Email"),
+            const Text("User Name"),
             const SizedBox(height: 6),
             CustomTextfield(
-              hintText: "Enter your email address",
-              controller: emailController,
+              hintText: "Enter your name",
+              controller: controller.usernameController,
             ),
-
             const SizedBox(height: 12),
             const Text("Password"),
             const SizedBox(height: 6),
             CustomTextfield(
               hintText: "Password",
               isPassword: true,
-              controller: passwordController,
+              controller: controller.passwordController,
             ),
-
             const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Checkbox(
-                      value: rememberMe,
-                      onChanged: (value) {
-                        setState(() {
-                          rememberMe = value ?? false;
-                        });
-                      },
-                    ),
-                    const Text("Remember Me", style: TextStyle(fontSize: 14)),
-                  ],
+                Obx(
+                      () => Row(
+                    children: [
+                      Checkbox(
+                        value: controller.rememberMe.value,
+                        onChanged: controller.toggleRememberMe,
+                      ),
+                      const Text("Remember Me", style: TextStyle(fontSize: 14)),
+                    ],
+                  ),
                 ),
                 TextButton(
                   onPressed: () {
@@ -98,28 +73,13 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             const SizedBox(height: 20),
-            CustomButton(
-              text: "Sign in",
-              onTap: () {
-                final email = emailController.text.trim();
-                final password = passwordController.text.trim();
-
-                final role = getRoleFromCredentials(email, password);
-
-                if (role == null) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Invalid email or password")),
-                  );
-                  return;
-                }
-
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => AppShell(role: role),
-                  ),
-                );
-              },
+            Obx(
+                  () => controller.isLoading.value
+                  ? const Center(child: CircularProgressIndicator())
+                  : CustomButton(
+                text: "Sign in",
+                onTap: () => controller.login(context),
+              ),
             ),
           ],
         ),

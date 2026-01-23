@@ -1,9 +1,11 @@
+// lib/core/roles.dart
+
+/// Enum for user roles in the UI
 enum UiUserRole {
   admin,
   manager,
   creator,
 }
 
-
-///when this value is change the apps full ui is full change
+/// Global variable to hold the current UI role
 UiUserRole currentUiUserRole = UiUserRole.admin;
